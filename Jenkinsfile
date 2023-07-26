@@ -1,24 +1,19 @@
 pipeline{
     agent any
     stages{
-        stage(source){
-            steps{
-               // git 'https://github.com/bindujoshitha/estore-admin-dashboard.git '
-                sh "npm install"
-                echo "Source Stage is Completed"
-            }
-        }
-        stage(Test){
-            steps{
-                sh "npm run cypress:run"
-                echo "Test Stage is completed"
-            }
-        }
-        /*stage(Build){
-            steps{
-                sh " ng build"
-                echo "Test Stage is Finished"
-            }
-        }*/
+         stage('Build') {
+        steps {
+           script{
+             if(params.SKIP_TESTS){
+               sh 'npm install'
+               sh 'npm run build:${ENV}'
+             }else{
+               sh 'npm install'
+               sh 'npm run test'
+               sh 'npm run build:${ENV}'
+                    }
+                  }
+               }
+             }
     }
 }
