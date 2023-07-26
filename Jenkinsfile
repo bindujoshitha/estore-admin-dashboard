@@ -14,11 +14,11 @@ pipeline{
                 echo "Test Stage is completed"
             }
         }
-        stage(Build){
+        /*stage(Build){
             steps{
                 sh " ng build"
                 echo "Test Stage is Finished"
             }
-        }
+        }*/
     }
 }
