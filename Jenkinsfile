@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage(source){
             steps{
-                git 'https://github.com/bindujoshitha/estore-admin-dashboard.git '
+               // git 'https://github.com/bindujoshitha/estore-admin-dashboard.git '
                 sh "npm install"
                 echo "Source Stage is Completed"
             }
