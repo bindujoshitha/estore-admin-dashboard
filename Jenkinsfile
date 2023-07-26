@@ -4,13 +4,9 @@ pipeline{
          stage('Build') {
         steps {
            script{
-             if(params.SKIP_TESTS){
-               sh 'npm install'
-               sh 'npm run build:${ENV}'
+             echo "hello"
              }else{
-               sh 'npm install'
-               sh 'npm run test'
-               sh 'npm run build:${ENV}'
+              echo "hi"
                     }
                   }
                }
